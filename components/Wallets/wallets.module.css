@@ -1,0 +1,93 @@
+.connectContainer {
+    color: #b8c1ec;
+    padding: 20px;
+}
+
+.walletConnectHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.walletConnectHeading h3 {
+    color: #fffffe;
+}
+
+.closeIcon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.closeIcon:hover {
+    color: #eebbc3;
+    transform: scale(1.2);
+}
+
+.walletsContainer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wallets{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #121629;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.wallets:hover {
+    border: 1px solid #eebbc3;
+}
+
+
+.walletName {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.walletImageContainer {
+    position: relative;
+    width: 70px;
+    height: 50px;
+}
+
+.img {
+    object-fit: contain;
+}
+
+.checkCircle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #121629;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.wallets:hover .checkCircle {
+    border-color: #eebbc3;
+}
+
+.innerCheck {
+    visibility: hidden;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #eebbc3;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.wallets:hover .innerCheck {
+    visibility: visible;
+}
