@@ -1,0 +1,8 @@
+.container {
+    max-width: max-content;
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+}

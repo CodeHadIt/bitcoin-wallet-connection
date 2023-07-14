@@ -1,0 +1,72 @@
+.card_container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+    gap: 2rem;
+    /* border: 1px solid red; */
+    /* max-width: max-content; */
+    margin: 0 auto;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.heading h3 {
+    font-size: 2.5rem;
+}
+
+.heading .icon {
+    font-size: 3rem;
+    color: var(--light-pink);
+}
+
+.customizables {
+    padding-inline: 2rem;
+}
+
+.progress_bars {
+    font-size: 1.6rem;
+    width: 400px;
+}
+
+.speed, .pixels {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+}
+
+.speed p, .pixels p {
+    color: white;
+}
+
+.warning {
+    font-size: 1.8rem;
+    color: var(--light-pink);
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.buttons button {
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttons button:hover {
+    opacity: 1;
+}
+
+
+
+
+
+

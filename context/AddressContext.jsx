@@ -22,7 +22,7 @@ export const AddressProvider = ({ children }) => {
     if (typeof window.unisat !== "undefined") {
       try {
         let accounts = await window.unisat.requestAccounts();
-        setUserAddress(accounts);
+        setUserAddress(accounts[0]);
       } catch (e) {
         console.log("connect failed");
       }
@@ -35,12 +35,11 @@ export const AddressProvider = ({ children }) => {
     if (typeof window.btc !== "undefined") {
       try {
         const response = await window.btc?.request("getAddresses");
-        if (!response.ok) {
-          alert("Problem connecting wallet");
-        }
-        // const data = response.result.addresses
-        const data = response.result.addresses[0];
-        setUserAddress(data);
+        const addresses = response.result.addresses;
+        const tapRootAddress = addresses.find(
+          (address) => address.type === "p2tr"
+        );
+        setUserAddress(tapRootAddress.address);
       } catch (error) {
         console.log(error)
       }
@@ -59,10 +58,10 @@ export const AddressProvider = ({ children }) => {
     },
     onFinish: (response) => {
       const addresses = {
-        ordinals: response.addresses[0].address,
+        ordinal: response.addresses[0].address,
         payment: response.addresses[1].address,
       };
-      setUserAddress(addresses.ordinals);
+      setUserAddress(addresses.ordinal);
     },
     onCancel: () => alert("Request canceled"),
   };

@@ -1,5 +1,10 @@
 :root {
   letter-spacing: 1px;
+  font-size: 10px;
+  --light-pink: #eebbc3;
+  --deep-pink: rgb(228 37 117);
+  --dark: #121629;
+  --light-blue: #74A9D8;
 }
 
 html,
@@ -21,6 +26,104 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+/*Handles the track on which the ball runs*/
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: .8rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000;
+  background: var(--light-blue);
+  border-radius: 5px;
+  border: 0px solid #010101;
+}
+/*Handles the ball*/
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 20px;
+  width: 20px;
+  border-radius: 15px;
+  background: var(--light-pink);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+/*For IOS*/
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background:var(--light-blue) ;
+}
+
+/*For Mozila*/
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: .8rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000;
+  background: var(--light-blue);
+  border-radius: 5px;
+  border: 0px solid #010101;
+}
+
+/*For Mozila*/
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 20px;
+  width: 20px;
+  border-radius: 15px;
+  background: var(--light-pink);
+  cursor: pointer;
+}
+
+/*For Edge*/
+input[type=range]::-ms-track {
+  width: 100%;
+  height: .8rem;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: var(--light-blue);
+  border: 0px solid #010101;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #000000;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: var(--light-blue);
+  border: 0px solid #010101;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #000000;
+}
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #000031;
+  border: 1px solid #00001E;
+  height: 20px;
+  width: 20px;
+  border-radius: 15px;
+  background: var(--light-pink);
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--light-blue);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--light-blue);
 }
 
 
