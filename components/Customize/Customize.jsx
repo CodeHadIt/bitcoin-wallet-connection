@@ -19,9 +19,6 @@ const Customize = ({onCustomize}) => {
     const [speed, setSpeed] = useState(20)
     const [pixels, setPixels] = useState(40);
 
-    useEffect(() => {
-        onCustomize(pickers, speed, pixels)
-    }, [pickers, speed, pixels, randomizeTriggered])
     const getSpeed = (e) => {
         setSpeed(parseInt(e.target.value));
     }
@@ -53,6 +50,10 @@ const Customize = ({onCustomize}) => {
 
     const getRandomNumber = (min, max) => {
       return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const sendCustomizations = () => {
+      onCustomize(pickers, speed, pixels);
     }
   return (
     <Card className={styles.card}>
@@ -103,6 +104,7 @@ const Customize = ({onCustomize}) => {
             Randomize Colors
           </Button>
         </div>
+        <Button onClick={sendCustomizations}>View NFT</Button>
       </div>
     </Card>
   );

@@ -1,11 +1,11 @@
 .btn {
     width: max-content;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: 10px 20px;
     border-radius: 10px;
     color: white;
-    background-color: rgb(228 37 117);
-    border: 1px solid rgb(228 37 117);
+    background-color: var(--deep-pink);
+    border: 1px solid var(--deep-pink);
     cursor: pointer;
     transition: 3s;
 }

@@ -59,10 +59,19 @@
 .buttons button {
     opacity: 0.8;
     transition: all 0.2s ease-in-out;
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
 }
 
-.buttons button:hover {
-    opacity: 1;
+
+.view_btn {
+    opacity: 0.4;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.buttons button:hover, .view_btn:hover {
+    opacity: 1.5;
 }
 
 

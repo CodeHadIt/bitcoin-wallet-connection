@@ -6,6 +6,12 @@
   --dark: #121629;
   --light-blue: #74A9D8;
 }
+ 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -14,13 +20,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  min-height: 100vh;
 }
 
 a {

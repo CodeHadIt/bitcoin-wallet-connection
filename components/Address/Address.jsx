@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 const Address = () => {
  const { userAddress } = useContext(AddressContext);
+ const route = useRouter();
 
  useEffect(() => {
     if (userAddress) {
@@ -13,21 +14,22 @@ const Address = () => {
  }, [userAddress])
 
  const verifyOrdinalId = async() => {
-    try {
-      const response = await fetch(`https://ordapi.xyz/address/${userAddress}`);
-      if (!response.ok) {
-        throw new Error("No Ordinal Found");
-      }
-      const data = await response.json();
-      console.log(data);
-      //If check is successful, grant access
-      // route?.push("url/");
-    } catch (error) {
-        console.log(error);
-    }
+    // try {
+    //   const response = await fetch(`https://ordapi.xyz/address/${userAddress}`);
+    //   if (!response.ok) {
+    //     throw new Error("No Ordinal Found");
+    //   }
+    //   const data = await response.json();
+    //   console.log(data);
+    //   route?.push("/customize");
+    // } catch (error) {
+    //     console.log(error);
+    // }
+
+    route?.push("/customize");
 
  }
-  return userAddress && <div>{userAddress}</div>;
+  return null;
 };
 
 export default Address;
