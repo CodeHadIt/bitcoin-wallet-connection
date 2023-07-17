@@ -16,6 +16,12 @@ const CustomizePage = () => {
   const { userAddress } = useContext(AddressContext);
   const router = useRouter();
 
+  useEffect(() => {
+    if (!userAddress) {
+      return router.push("/");
+    }
+  }, [userAddress])
+
   const setCustomizedData = (colorObj, speed, columns) => {
     const userPixels = JSON.stringify(
       Object.entries(colorObj).map(([k, v]) => v)
@@ -25,10 +31,6 @@ const CustomizePage = () => {
     setColumns(columns);
     setIsCustomized(true);
   };
-
-  if (!userAddress) {
-    return router.push("/");
-  }
 
   return (
     <div className={styles.container}>
