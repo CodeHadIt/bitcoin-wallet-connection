@@ -30,7 +30,6 @@ const Address = () => {
     } catch (error) {
         console.log(error);
     }
-    // route?.push("/customize");
  }
   return null;
 };

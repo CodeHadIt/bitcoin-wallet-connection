@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useState } from "react";
 import { getAddress } from "sats-connect";
 

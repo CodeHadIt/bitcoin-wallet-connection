@@ -4,8 +4,7 @@ import { Inter } from 'next/font/google'
 import { AddressProvider } from '@/context/AddressContext'
 import Header from '@/components/Header/Header'
 
-const inter = Inter({ subsets: ['latin'] })
-
+const inter = Inter({ subsets: ['latin'] });
 export const metadata = {
   title: 'Connect Bitcoin Wallet and Generate Ordinal',
   description: 'Generate Your Ordinal',
