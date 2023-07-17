@@ -6,3 +6,10 @@
     align-items: center;
     gap: 10rem;
 }
+
+.connect_notif {
+    position: absolute;
+    inset: 25%;
+    font-size: 4rem;
+    text-align: center;
+}
