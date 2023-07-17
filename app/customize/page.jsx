@@ -1,20 +1,24 @@
 "use client"
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./page.module.css"
 import Customize from '@/components/Customize/Customize'
 import Art from "@/components/Art/Art";
 import { AddressContext } from "@/context/AddressContext";
-// import { openingTags64, closingTags64 } from '@/libs/Tags'
 
 const CustomizePage = () => {
-    // const [frameSrc, setFrameSrc] = useState(null);
     const [userPixels, setUserPixels] = useState([]);
     const [speed, setSpeed] = useState(null);
     const [columns, setColumns] = useState(null);
     const [isCustomized, setIsCustomized] = useState(false)
     const { userAddress } = useContext(AddressContext);
     const router = useRouter();
+
+    useEffect(() => {
+        if (!userAddress) {
+          return router.push("/");
+        }
+    }, [userAddress])
 
     const setCustomizedData = (colorObj, speed, columns) => {
         const userPixels = JSON.stringify(
@@ -41,9 +45,7 @@ const CustomizePage = () => {
     //   console.log(finalSrc, "final");
     //   setFrameSrc(decodedHTML);
     // };
-  if (!userAddress)  {
-    return router.push("/")
-  }
+  
   return (
     <div className={styles.container}>
       <Customize onCustomize={setCustomizedData} />
