@@ -3,34 +3,37 @@ import { useContext, useEffect } from "react";
 import { AddressContext } from "@/context/AddressContext";
 import { useRouter } from "next/navigation";
 
-const Address = () => {
- const { userAddress } = useContext(AddressContext);
- const route = useRouter();
+const Address = ({ setFailedValidation }) => {
+  const { userAddress } = useContext(AddressContext);
+  const route = useRouter();
 
- useEffect(() => {
+  useEffect(() => {
     if (userAddress) {
-        verifyOrdinalId();
+      verifyOrdinalId();
     }
- }, [userAddress])
+  }, [userAddress]);
 
- const verifyOrdinalId = async() => {
+  const verifyOrdinalId = async () => {
     try {
       const response = await fetch(
-        `https://ordapi.bestinslot.xyz/v1/get_inscriptions/${userAddress}`
+        `https://api.ordex.ai/v0.1/items/byOwner?blockchains=BITCOIN&owner=BITCOIN%3A${userAddress}`
       );
       if (!response.ok) {
         throw new Error("No Ordinal Found");
       }
-      console.log(response, "response");
       const data = await response.json();
-      console.log(data, "data");
-      if (data.token_id) {
+      const items = data.items;
+      const regex = /BITCOIN:(.*?)/;
+      const validation = items.some((item) => regex.test(item.id));
+      if (validation) {
         route?.push("/customize");
-      } 
+      } else {
+        setFailedValidation(true);
+      }
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
- }
+  };
   return null;
 };
 
