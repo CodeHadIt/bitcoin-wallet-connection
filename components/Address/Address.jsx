@@ -14,20 +14,23 @@ const Address = () => {
  }, [userAddress])
 
  const verifyOrdinalId = async() => {
-    // try {
-    //   const response = await fetch(`https://ordapi.xyz/address/${userAddress}`);
-    //   if (!response.ok) {
-    //     throw new Error("No Ordinal Found");
-    //   }
-    //   const data = await response.json();
-    //   console.log(data);
-    //   route?.push("/customize");
-    // } catch (error) {
-    //     console.log(error);
-    // }
-
-    route?.push("/customize");
-
+    try {
+      const response = await fetch(
+        `https://ordapi.bestinslot.xyz/v1/get_inscriptions/${userAddress}`
+      );
+      if (!response.ok) {
+        throw new Error("No Ordinal Found");
+      }
+      console.log(response, "response");
+      const data = await response.json();
+      console.log(data, "data");
+      if (data.token_id) {
+        route?.push("/customize");
+      } 
+    } catch (error) {
+        console.log(error);
+    }
+    // route?.push("/customize");
  }
   return null;
 };
